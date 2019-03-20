@@ -35,6 +35,11 @@
             window.moveTo(0,i);
         }
     }
+
+    function getTitle() {
+        alert(frames.content.document.title);
+    }
+
 </script>
 
 
@@ -44,5 +49,8 @@
 <a href="javascript:move_window_right()">MOVE WINDOW RIGHT</a><br>
 <a href="javascript:move_window_down()">MOVE WINDOW DOWN</a><br>
 <a href="javascript:move_window_up()">MOVE WINDOW UP</a><br>
+
+<p onclick="getTitle()">GET TITLE</p>
+<iframe src="http://galiyev-tech/en" name="content" frameborder="0"></iframe>
 </body>
 </html>
