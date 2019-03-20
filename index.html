@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-var x;
+var x,w;
     function reload_page() {
         window.reload();
     }
@@ -23,16 +23,20 @@ var x;
         window.clearInterval(x);
 
     }
+    function open_window() {
+        w =window.open("close.html","WINDOWS NAME","width=200,height=200,location=close.html");
+    }
 
 
 </script>
 
 
-<a href="javascript:reload_page()">RELOAD PAGE</a></br>
-<a href="javascript:assign_page()">ASSIGN</a></br>
-<a href="javascript:demo_timeout()">TIMEOUT</a></br>
-<a href="javascript:demo_interval()">INTERVAL</a></br>
-<a href="javascript:clear_interval()">CLEAR INTERVAL</a></br>
+<a href="javascript:reload_page()">RELOAD PAGE</a><br>
+<a href="javascript:assign_page()">ASSIGN</a><br>
+<a href="javascript:demo_timeout()">TIMEOUT</a><br>
+<a href="javascript:demo_interval()">INTERVAL</a><br>
+<a href="javascript:clear_interval()">CLEAR INTERVAL</a><br>
+<a href="javascript:open_window()">OPEN WINDOW</a><br>
 
 
 </body>
