@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var w;
+    function close_window() {
+        w=window.close();
+    }
+    function move_window_left() {
+        for(var i=window.screen.width;i>0;i--){
+            window.moveTo(i,0);
+        }
+
+    }
+
+    function move_window_right() {
+        for(var i=0;i<window.screen.width;i++){
+            window.moveTo(i,0);
+        }
+    }
+
+    function move_window_down() {
+
+        for(var i=0;i<window.screen.height;i++){
+            window.moveTo(window.screen,i);
+        }
+    }
+
+    function move_window_up() {
+        for(var i=window.screen.height;i>0;i--){
+            window.moveTo(0,i);
+        }
+    }
+</script>
+
+
+
+<a href="javascript:close_window()">CLOSE WINDOW</a><br>
+<a href="javascript:move_window_left()">MOVE WINDOW LEFT</a><br>
+<a href="javascript:move_window_right()">MOVE WINDOW RIGHT</a><br>
+<a href="javascript:move_window_down()">MOVE WINDOW DOWN</a><br>
+<a href="javascript:move_window_up()">MOVE WINDOW UP</a><br>
+</body>
+</html>
