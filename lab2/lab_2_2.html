@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+
+    function addYear(flag) {
+
+        var s=document.formYear.yearList;
+        if(flag){
+         var   x=s.options[s.length-1].value*1+1;
+         var   o=new Option(x,x,false,true);
+            try{
+                s.add(o,null);
+            }catch(e){
+                s.add(o);
+            }
+        }else{
+        var    x=s.options[0].value*1-1;
+        var    o=new Option(x,x,false,true);
+            try{
+                s.add(o,s.options[0]);
+            }catch(e){
+                s.add(o,0);
+            }
+
+        }
+
+
+
+    }
+
+
+
+</script>
+
+
+<a href="javascript:addYear(0)">ADD YEAR BEFORE</a>
+<form action="" name="formYear">
+
+<select name="yearList" id="yearList">
+    <option value="1970">1970</option>
+    <option value="1971">1971</option>
+    <option value="1972">1972</option>
+    <option value="1973">1973</option>
+</select>
+</form>
+
+<a href="javascript:addYear(1)">ADD YEAR AFTER</a>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    
+    function changeImg() {
+        if(document.square.alt==='red') {
+            document.square.src = 'img/green.png';
+            document.square.alt = 'green';
+        }else{
+            document.square.src = 'img/red.png';
+            document.square.alt = 'red';
+        }
+
+    }
+    var flag=false;
+    function loopImg() {
+        if(flag)
+            document.square.src = 'img/red.png';
+        else
+            document.square.src = 'img/green.png';
+            flag = !flag;
+
+    }
+</script>
+
+
+<img src="img/red.png" alt="red" name="square"><br>
+<a href="javascript:changeImg()">CHANGE IMAGE</a><br>
+<a href="javascript:loopImg()">CHANGE IMAGE DYNAMIC</a><br>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function getFormData() {
+        var form_data=document.search;
+        form_data.action='http://google.com';
+        form_data.enctype='';
+        form_data.method='post';
+       console.log(form_data.target);
+        console.log(form_data.enctype);
+        console.log(form_data.action);
+        console.log(form_data.name);
+        console.log(form_data.elements);
+        console.log(form_data.method);
+    }
+</script>
+
+
+<form name="search" action="#" enctype="multipart/form-data" target="_blank">
+    <label for="query">Search Input</label><br>
+    <input type="text" name="q"  id="query" value="Search"/><br>
+    <input type="submit" value="SUBMIT">
+    <input type="reset" value="RESET">
+</form>
+<p onclick="getFormData()">GET FORM DATA</p>
+
+</body>
+</html>

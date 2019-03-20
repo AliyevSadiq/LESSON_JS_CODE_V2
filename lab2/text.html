@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function checkFormData() {
+    var form=document.myform;
+    var pwd_value=document.myform.password.value;
+    var email_value=document.myform.email.value;
+    var reg_email=/^\w{5}[.]\w{5}[@] mail.ru|gmail.com|bk.ru$/;
+        if(pwd_value.length===0){
+
+            form.password.style["borderColor"]="red";
+        }else{
+
+            form.password.style["borderColor"]="green";
+        }
+
+    if(!reg_email.test(email_value)){
+        form.email.style["borderColor"]="red";
+    }else{
+        form.email.style["borderColor"]="green";
+    }
+
+
+
+
+
+    }
+</script>
+
+
+<form name="myform" action="#" enctype="multipart/form-data" target="_blank">
+    <label for="pwd">PWD Input</label><br>
+    <input type="password" id="pwd" name="password" value=""/><br>
+    <label for="email">EMAIL Input</label><br>
+    <input type="email" id="email" name="email" value="sadiq.sadi@bk.ru"/><br>
+    <input type="submit"  value="SUBMIT">
+    <input type="reset" value="RESET">
+</form>
+<p onclick="checkFormData()">CHECK FORM DATA</p>
+
+</body>
+</html>

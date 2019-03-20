@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    
+    function checkFormData() {
+    var form=document.myform;
+    var form_prop=form.elements;
+
+
+var hide_btn='';
+for(var i=0;i<form_prop.length;i++){
+
+if(form_prop[i].name!=='send'){
+
+if(form_prop[i].value.length!==0){
+    form_prop[i].style['borderColor']='green';
+    hide_btn='';
+console.log(form_prop[i].value+'\n');
+}else{
+    hide_btn='y';
+    form_prop[i].style['borderColor']='red';
+}
+
+
+}else{
+    if(hide_btn==='y'){
+        form_prop[i].style['display']='none';
+    }else{
+        form_prop[i].style['display']='block';
+    }
+}
+
+
+}
+
+
+
+    }
+//change a tag href
+    function getUrl() {
+        var s=document.myform.selUrl;
+       var url_value=s.options[s.selectedIndex].value;
+
+       document.links[0].href=url_value;
+
+    }
+
+
+
+
+    
+</script>
+
+
+
+<form action="" name="myform">
+
+    <input type="text" name="item1" value=""/><br>    
+    <input type="text" name="item2" value=""/><br>    
+    <input type="text" name="item3" value=""/><br>    
+    <input type="text" name="item4" value=""/><br>    
+    <input type="text" name="item5" value=""/><br>
+    <select name="chlist">
+        <option value="" selected>SELECT</option>
+        <option value="1">ITEM1</option>
+        <option value="2">ITEM2</option>
+    </select>
+    <select name="selUrl" id="selUrl" disabled onchange="getUrl()">
+    </select>
+    <a href="javasscript:getUrl()" disabled>REDIRECT</a>
+
+
+
+    <input type="submit" value="SEND" name="send">
+    
+    
+    <p onclick="checkFormData()">CHECK FORM</p>
+    
+</form>
+
+<script>
+//add option selectbox
+    var links=new Object();
+
+    var s=document.myform.selUrl;
+    links['YANDEX']='https:yandex.ru';
+    links['GOOGLE']='https:google.com';
+
+    for(var item in links){
+        var option=new Option();
+        option.value=links[item];
+        option.text=item;
+        s.add(option);
+    }
+var f=s.form;
+for(var i=0;i<f.elements.length;i++){
+    f.elements[i].disabled=false;
+}
+</script>
+
+
+</body>
+</html>
