@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<style>
+    body{
+        height: 600px;
+    }
+    section{
+        position: relative;
+        background-color: yellow;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 100%;
+        padding: 5px;
+    }
+    span{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: red;
+    }
+
+</style>
+
+
+
+
+
+
+<section>
+<span id="cube"></span>
+</section>
+
+
+<script>
+
+    var cube=document.getElementById('cube');
+    var section=document.getElementsByTagName('section');
+    var w_section=section[0].clientWidth-45;
+    var h_section=section[0].clientHeight-45;
+    var interval_top,interval_down,interval_right,interval_left;
+
+
+
+    var pos_d=0;
+    var pos_r=0;
+    document.addEventListener("keydown", function(event){
+        if(event.which===40){
+             interval_top=setInterval(moveTopCube,12);
+             clearInterval(interval_down);
+             clearInterval(interval_right);
+             clearInterval(interval_left);
+        }
+
+        if(event.which===38){
+             interval_down=setInterval(moveDownCube,12);
+            clearInterval(interval_top);
+            clearInterval(interval_right);
+            clearInterval(interval_left);
+        }
+
+        if(event.which===39){
+             interval_right=setInterval(moveRightCube,12);
+            clearInterval(interval_top);
+            clearInterval(interval_down);
+            clearInterval(interval_left);
+        }
+
+        if(event.which===37){
+             interval_left=setInterval(moveLeftCube,12);
+            clearInterval(interval_top);
+            clearInterval(interval_down);
+            clearInterval(interval_right);
+
+        }
+
+
+    });
+
+
+
+
+    function moveTopCube() {
+
+        if(pos_d===h_section-5){
+            window.clearInterval(interval_top);
+        }else{
+            cube.style.top=pos_d+'px';
+            pos_d++;
+        }
+    }
+
+
+
+    function moveDownCube() {
+
+        if(pos_d===0){
+            window.clearInterval(interval_down);
+        }else{
+            cube.style.top=pos_d+'px';
+            pos_d--;
+        }
+    }
+
+
+
+    function moveRightCube() {
+
+        if(pos_r===w_section){
+            window.clearInterval(interval_right);
+        }else{
+            cube.style.left=pos_r+'px';
+            pos_r++;
+        }
+
+    }
+
+
+    function moveLeftCube() {
+
+        if(pos_r===0){
+            window.clearInterval(interval_left);
+        }else{
+            cube.style.left=pos_r+'px';
+            pos_r--;
+        }
+
+    }
+
+
+</script>
+
+
+
+</body>
+</html>
