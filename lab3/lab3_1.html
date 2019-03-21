@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+
+    td{
+        border: 1px solid white;
+        text-align: left;
+        padding: 8px;
+        color: white;
+    }
+    tr {
+        background-color: red;
+    }
+
+    thead>tr {
+        background-color: blue;
+    }
+</style>
+<script>
+
+function createDom() {
+    var row=10;
+    var cell=10;
+var div=document.getElementById('d');
+var table_tag=document.createElement('table');
+    var table=div.getElementsByTagName('table');
+
+
+
+    if(table.length===0) {
+        div.appendChild(table_tag);
+    }
+    var thead = document.createElement('thead');
+    table_tag.appendChild(thead);
+
+        
+    for(var i=1;i<=row;i++){
+
+        if(i<=3){
+            var tr_head = document.createElement('tr');
+            thead.appendChild(tr_head);
+
+            for (var z = 1; z <= cell; z++) {
+                var td_head = document.createElement('td');
+                tr_head.appendChild(td_head);
+                var td_value_head = document.createTextNode('ITEM' + i * z);
+                td_head.appendChild(td_value_head);
+            }
+        }
+
+
+        if(i>3 && i<8) {
+            var tr = document.createElement('tr');
+            table_tag.appendChild(tr);
+
+            for (var j = 1; j <= cell; j++) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                var td_value = document.createTextNode('ITEM' + i * j);
+                td.appendChild(td_value);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+</script>
+
+
+<a href="javascript:createDom()">CREATE TABLE</a>
+
+<div id="d"></div>
+
+
+</body>
+</html>

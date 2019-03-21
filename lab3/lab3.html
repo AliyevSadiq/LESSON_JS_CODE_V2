@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+function getNode(p){
+    var div=p.parentNode;
+    console.log(div.getElementsByTagName('p'));
+//var clone_node=p.cloneNode(true);
+//div.appendChild(clone_node);
+//div.parentNode.removeChild(p.parentNode);
+//div.appendChild(p);
+}
+
+
+
+function changePosition (a) {
+    var section=a.parentNode;
+    var elements=section.getElementsByTagName('p');
+    var a_tag=section.getElementsByTagName('a');
+   var align_value;
+
+    for(var i=0;i<elements.length;i++){
+        align_value=elements[i].getAttribute('align');
+
+        if(align_value==='left'){
+            align_value=elements[i].setAttribute('align','right');
+        }else{
+            align_value=elements[i].setAttribute('align','left');
+        }
+    }
+
+
+}
+
+</script>
+
+
+
+<div>
+<p onclick="getNode(this)">CLICK HERE</p>
+<p>OTHER PARAGRAPH</p>
+</div>
+
+
+
+<section>
+    <a onclick="changePosition(this)">CHANGE POSITION</a>
+<p align="left">ITEM1</p>
+<p align="right">ITEM2</p>
+<p align="left">ITEM3</p>
+<p align="right">ITEM4</p>
+
+
+
+</section>
+
+
+
+
+</body>
+</html>
