@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<p class="item" data-p="1000">TEST</p>
+<p class="item" data-p="10001">TEST1</p>
+
+
+<script>
+
+
+
+var className=function getElementsByClassName(node, classname) {
+    var a = [];
+    var re = new RegExp('(^| )'+classname+'( |$)');
+    var els = node.getElementsByTagName("*");
+    for(var i=0,j=els.length; i<j; i++)
+        if(re.test(els[i].className))a.push(els[i]);
+    return a;
+};
+
+
+
+   try {
+       var p = document.getElementsByClassName('item');
+       for (var i = 0; i < p.length; i++) {
+           p[i].onclick = function (e) {
+               e.srcElement.attributes[1].value = e.srcElement.attributes[1].value * 1 + 1;
+               console.log(e.srcElement.attributes[1].value);
+
+              if(e.toElement.style.backgroundColor==='red'){
+                  e.toElement.style.backgroundColor='';
+                  e.toElement.style.color='black';
+              }else{
+                  e.toElement.style.backgroundColor='red';
+                  e.toElement.style.color='white';
+              }
+
+           };
+
+
+       }
+   }catch(error) {
+
+       var p1 = className(document.body,'item');
+       for (var j = 0; j < p1.length; j++) {
+           p1[j].onclick = function (e) {
+
+               e = e || window.event;
+               e.srcElement.attributes[1].value = e.srcElement.attributes[1].value * 1 + 1;
+               console.log(e.srcElement.attributes[2]);
+
+           }
+       }
+   }
+
+
+
+
+</script>
+</body>
+</html>
